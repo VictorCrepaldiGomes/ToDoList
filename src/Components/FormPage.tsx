@@ -6,17 +6,21 @@ import { Background,
          Input,
          InputDiv,
          Button,
-         CardContent,
-         CardDiv,
+         Main,
+         StatusBar,
+         StatusItem,
+         EmptyState,
+
 
 
        } 
 from './FormPageStyle.tsx'
 import Logo from '../../public/Icons/Logo.svg'
+import { FiPlusCircle } from 'react-icons/fi'
+import { BsClipboard } from 'react-icons/bs'
 
 export function FormPage () {
 
-    // const [description, setDescription] = useState('')
 
     function handleNewTask(event: React.ChangeEvent<HTMLInputElement>): void {
         event.preventDefault()
@@ -33,22 +37,34 @@ export function FormPage () {
                 onChange={handleNewTask}
                 
                 />
-                <Button
-                
-                
-                >Criar +</Button>
+                <Button>Criar<FiPlusCircle size={20}/></Button>
             </InputDiv>
                 <HeaderDiv>
                     <img src={Logo}/>
                 </HeaderDiv>
 
             </Header>
-            <CardDiv>
-                <CardContent>Tarefas</CardContent>
-                <CardContent>Concluídas</CardContent>
+            <Main>
+                <StatusBar>
+                    <StatusItem>
+                        Tarefas criadas <span>0</span>
+                    </StatusItem>
+                    <StatusItem>
+                        Concluidas <span>0</span>
+                    </StatusItem>
+                </StatusBar>
+
+                <EmptyState>
+                    <BsClipboard size={56} color='#ffffff'/>
+                    <strong>Voce ainda não tem tarefas cadastradas</strong>
+                    <span>Crie tarefas e organize seus itens a fazer</span>
+                </EmptyState>
+            </Main>
+            
+            
 
 
-            </CardDiv>
+            
         </Background>
     )
 }
