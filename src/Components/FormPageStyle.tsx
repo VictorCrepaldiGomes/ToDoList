@@ -36,7 +36,7 @@ color: ${Colors.gray100};
 
 `
 
-export const InputDiv = styled.div`
+export const InputDiv = styled.form`
 display: flex;
 justify-content: center;
 align-items: center;
